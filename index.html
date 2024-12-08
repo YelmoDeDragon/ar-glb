@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AR Model Example</title>
+<head>
+    <title>3D Model with A-Frame</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://aframe.io/releases/1.2.0/aframe-ar.js"></script>
-  </head>
-  <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs>
-      <a-entity
-        gltf-model="SHIV.glb"
-        position="0 0 0"
-        scale="0.5 0.5 0.5">
-      </a-entity>
-      <a-marker-camera preset="hiro"></a-marker-camera>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <a-scene>
+        <!-- Camera -->
+        <a-camera position="0 1.6 0"></a-camera>
+
+        <!-- Light Source -->
+        <a-light type="directional" position="-1 1 1"></a-light>
+
+        <!-- 3D Model -->
+        <a-entity 
+            gltf-model="SHIV.glb" 
+            position="0 0 -5" 
+            scale="0.5 0.5 0.5">
+        </a-entity>
+
+        <!-- Ground Plane for Reference -->
+        <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
     </a-scene>
-  </body>
+</body>
 </html>
