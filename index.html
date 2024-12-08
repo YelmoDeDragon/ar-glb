@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>3D Model with A-Frame</title>
+    <title>Markerless AR Model with AR.js</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://ar-js-org.github.io/AR.js/aframe/build/aframe-ar.js"></script>
     <style>
         body {
             margin: 0;
@@ -10,23 +11,20 @@
         }
     </style>
 </head>
-<body>
-    <a-scene>
-        <!-- Camera -->
-        <a-camera position="0 1.6 0"></a-camera>
-
-        <!-- Light Source -->
-        <a-light type="directional" position="-1 1 1"></a-light>
+<body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs='sourceType: webcam;'>
+        <!-- Camera Entity -->
+        <a-entity camera></a-entity>
 
         <!-- 3D Model -->
         <a-entity 
             gltf-model="SHIV.glb" 
-            position="0 0 -5" 
+            position="0 0 -5"
             scale="0.5 0.5 0.5">
         </a-entity>
-
+        
         <!-- Ground Plane for Reference -->
-        <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+        <a-plane position="0 -0.01 0" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
     </a-scene>
 </body>
 </html>
